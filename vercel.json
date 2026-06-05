@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/apk",
+      "destination": "https://github.com/Thanh-WuTan/vietaccent/releases/latest/download/app-release.apk",
+      "permanent": false
+    }
+  ]
+}

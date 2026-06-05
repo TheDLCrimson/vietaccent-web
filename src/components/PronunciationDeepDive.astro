@@ -1,0 +1,88 @@
+---
+const steps = [
+  {
+    num: "01",
+    title: "Record your voice",
+    detail: "Tap the microphone and say the target word or phrase. The app captures your audio in real time.",
+  },
+  {
+    num: "02",
+    title: "FFT tone analysis",
+    detail: "A Fast Fourier Transform decomposes your pitch contour and compares it against the reference tone curve stored for that syllable.",
+  },
+  {
+    num: "03",
+    title: "Per-syllable scoring",
+    detail: "Each syllable receives an independent 0–100 score. A traffic-light indicator (green / yellow / red) gives instant at-a-glance feedback.",
+  },
+  {
+    num: "04",
+    title: "Tone contour chart",
+    detail: "An overlay chart plots your pitch contour against the ideal. You can see exactly where your tone rises, falls, or breaks too early.",
+  },
+  {
+    num: "05",
+    title: "Aggregate feedback",
+    detail: "A weighted average across syllables gives a word-level score. Weak syllables are highlighted so you know what to re-drill.",
+  },
+];
+
+const tones = [
+  { name: "Flat (ngang)", symbol: "a", color: "bg-blue-500", desc: "Level mid tone" },
+  { name: "Falling (huyền)", symbol: "à", color: "bg-slate-500", desc: "Low falling" },
+  { name: "Rising (sắc)", symbol: "á", color: "bg-green-500", desc: "High rising" },
+  { name: "Dipping (hỏi)", symbol: "ả", color: "bg-yellow-500", desc: "Dipping then rise" },
+  { name: "Creaky (ngã)", symbol: "ã", color: "bg-orange-500", desc: "High broken" },
+  { name: "Heavy (nặng)", symbol: "ạ", color: "bg-red-500", desc: "Low falling checked" },
+];
+---
+
+<section id="pronunciation" class="py-20 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <span class="inline-block bg-red-600 text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">
+        Core Differentiator
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold">AI Pronunciation Scoring</h2>
+      <p class="mt-4 text-lg text-slate-300 max-w-2xl mx-auto">
+        Vietnamese has 6 tones. Getting them wrong changes the word entirely. VietAccent's scoring pipeline gives you
+        objective, per-syllable feedback that no flashcard app can match.
+      </p>
+    </div>
+
+    <!-- Tone reference grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-16">
+      {tones.map((t) => (
+        <div class="bg-white/5 rounded-xl p-4 text-center border border-white/10 hover:bg-white/10 transition-colors">
+          <div class="text-3xl font-bold mb-1">{t.symbol}</div>
+          <div class={`w-full h-1 rounded-full ${t.color} mb-2`}></div>
+          <div class="text-xs font-semibold text-white/80">{t.name}</div>
+          <div class="text-xs text-slate-400 mt-1">{t.desc}</div>
+        </div>
+      ))}
+    </div>
+
+    <!-- How it works -->
+    <h3 class="text-xl font-bold text-white/90 mb-8 text-center">How the scoring pipeline works</h3>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      {steps.map((s) => (
+        <div class="relative bg-white/5 rounded-xl p-5 border border-white/10">
+          <div class="text-red-400 font-mono text-xs font-bold mb-3">{s.num}</div>
+          <h4 class="font-bold text-white mb-2 text-sm">{s.title}</h4>
+          <p class="text-slate-400 text-xs leading-relaxed">{s.detail}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Score formula callout -->
+    <div class="mt-12 bg-white/5 rounded-2xl p-6 border border-white/10 max-w-2xl mx-auto text-center">
+      <p class="text-slate-300 text-sm mb-2 font-semibold uppercase tracking-widest text-xs">Scoring formula</p>
+      <code class="text-green-400 font-mono text-lg block mb-3">
+        word_score = Σ (syllable_score × syllable_weight) / Σ weight
+      </code>
+      <p class="text-slate-400 text-sm">
+        Syllables are weighted by their position and tonal complexity. The final score maps to a letter grade and a targeted re-drill suggestion.
+      </p>
+    </div>
+  </div>
+</section>

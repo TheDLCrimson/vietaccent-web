@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import DownloadSection from "../components/DownloadSection.astro";
+import Footer from "../components/Footer.astro";
+import Analytics from "@vercel/analytics/astro";
+---
+
+<BaseLayout
+  title="Download VietAccent APK — Free Vietnamese Learning App"
+  description="Download the VietAccent Android APK directly. Open-source, signed release, SHA-256 verified. Requires Android 6.0+. No Play Store account needed."
+  canonicalUrl="https://vietaccent.vercel.app/download"
+>
+  <Nav />
+  <main class="pt-16">
+    <DownloadSection />
+
+    <!-- Standalone trust note -->
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 text-center">
+      <p class="text-sm text-slate-500">
+        Having trouble? Check the
+        <a href="/#faq" class="text-red-600 underline hover:text-red-700">FAQ</a>
+        or
+        <a href="mailto:22thanh.va@vinuni.edu.vn" class="text-red-600 underline hover:text-red-700">contact us</a>.
+      </p>
+    </div>
+  </main>
+  <Footer />
+  <Analytics />
+</BaseLayout>
+
+<script>
+  document.getElementById("main-download-apk")?.addEventListener("click", () => {
+    if (typeof window !== "undefined" && (window as any).va) {
+      (window as any).va("event", { name: "apk_download", data: { source: "download_page" } });
+    }
+  });
+</script>

@@ -1,0 +1,31 @@
+---
+const APK_URL = "https://github.com/Thanh-WuTan/vietaccent/releases/latest/download/app-release.apk";
+---
+
+<nav class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur-sm border-b border-slate-100">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+    <a href="/" class="flex items-center gap-2 font-bold text-xl text-red-600">
+      <span class="text-2xl">🇻🇳</span>
+      VietAccent
+    </a>
+
+    <div class="hidden sm:flex items-center gap-6 text-sm font-medium text-slate-600">
+      <a href="/#features" class="hover:text-red-600 transition-colors">Features</a>
+      <a href="/#pronunciation" class="hover:text-red-600 transition-colors">Pronunciation</a>
+      <a href="/#tech" class="hover:text-red-600 transition-colors">Tech</a>
+      <a href="/#faq" class="hover:text-red-600 transition-colors">FAQ</a>
+    </div>
+
+    <a
+      href={APK_URL}
+      id="nav-download-apk"
+      class="inline-flex items-center gap-2 bg-red-600 text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
+      download
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+      </svg>
+      Download APK
+    </a>
+  </div>
+</nav>

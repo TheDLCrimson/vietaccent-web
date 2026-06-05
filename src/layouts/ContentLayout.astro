@@ -1,0 +1,28 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  frontmatter?: { title?: string; description?: string };
+}
+
+// MDX passes frontmatter through Astro.props.frontmatter
+const { title, description, frontmatter } = Astro.props;
+const resolvedTitle = frontmatter?.title ?? title;
+const resolvedDesc = frontmatter?.description ?? description;
+---
+
+<BaseLayout title={resolvedTitle} description={resolvedDesc}>
+  <Nav />
+  <main class="pt-16 min-h-screen">
+    <article class="prose prose-slate max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16
+                    prose-headings:font-extrabold prose-a:text-red-600
+                    prose-code:bg-slate-100 prose-code:rounded prose-code:px-1">
+      <slot />
+    </article>
+  </main>
+  <Footer />
+</BaseLayout>

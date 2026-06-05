@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#991b1b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Flag stripe accent -->
+  <rect x="0" y="0" width="12" height="630" fill="#fbbf24"/>
+  <!-- App name -->
+  <text x="100" y="280" font-family="system-ui,sans-serif" font-weight="900" font-size="96" fill="white">VietAccent</text>
+  <!-- Tagline -->
+  <text x="100" y="360" font-family="system-ui,sans-serif" font-weight="400" font-size="40" fill="rgba(255,255,255,0.85)">Learn Vietnamese. Sound like a native.</text>
+  <!-- Sub-label -->
+  <text x="100" y="430" font-family="system-ui,sans-serif" font-weight="400" font-size="28" fill="rgba(255,255,255,0.6)">AI pronunciation scoring · Structured lessons · Free APK</text>
+  <!-- Flag emoji stand-in -->
+  <text x="1060" y="580" font-family="system-ui,sans-serif" font-size="120" fill="white" opacity="0.15">🇻🇳</text>
+</svg>

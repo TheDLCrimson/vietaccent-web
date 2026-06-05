@@ -1,0 +1,64 @@
+---
+// AI Conversation/Voice Chat excluded — could not verify against current APK (repo private).
+// Gemini is mentioned only in TechArchitecture.
+
+const features = [
+  {
+    icon: "🏫",
+    title: "Structured Vietnamese Lessons",
+    badge: null,
+    description:
+      "9+ interactive lesson types — multiple choice, fill-in-the-blank, listening exercises, and more. Adaptive content adjusts to your pace so you build confidence in each skill before moving on.",
+  },
+  {
+    icon: "🎤",
+    title: "AI Pronunciation Scoring",
+    badge: "★ Differentiator",
+    badgeColor: "bg-red-100 text-red-700",
+    description:
+      "Record any Vietnamese word or phrase and get immediate per-syllable scores with tone contour analysis. Visual traffic-light indicators and an FFT spectrum readout show exactly which tones need work.",
+  },
+  {
+    icon: "🔊",
+    title: "Phrase Explorer",
+    badge: null,
+    description:
+      "Browse a curated phrase library with AI-generated Northern and Southern accent audio (ElevenLabs TTS). Each entry includes a Gemini-powered contextual explanation, so you learn how phrases are actually used in real speech.",
+  },
+  {
+    icon: "📈",
+    title: "Progress Tracking, Streaks & Achievements",
+    badge: null,
+    description:
+      "Daily streaks, XP points, and an achievement system keep you motivated. The dashboard surfaces your weakest tones and skill areas so study sessions are always targeted.",
+  },
+];
+---
+
+<section id="features" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Everything you need to master Vietnamese</h2>
+      <p class="mt-4 text-lg text-slate-500 max-w-2xl mx-auto">
+        Four core capabilities, each designed around the hardest parts of learning Vietnamese as a foreign language.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-8">
+      {features.map((f) => (
+        <div class="group relative rounded-2xl border border-slate-100 p-8 hover:border-red-200 hover:shadow-lg transition-all">
+          <div class="text-4xl mb-4">{f.icon}</div>
+          <div class="flex items-start gap-3 mb-3">
+            <h3 class="text-xl font-bold text-slate-900">{f.title}</h3>
+            {f.badge && (
+              <span class={`shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full mt-0.5 ${f.badgeColor}`}>
+                {f.badge}
+              </span>
+            )}
+          </div>
+          <p class="text-slate-600 leading-relaxed">{f.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

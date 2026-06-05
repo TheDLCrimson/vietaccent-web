@@ -1,0 +1,153 @@
+---
+interface Props {
+  version?: string;
+  releaseDate?: string;
+  sha256?: string;
+  minAndroid?: string;
+}
+
+const {
+  version = "v1.0.0",
+  releaseDate = "2025-06-05",
+  sha256 = "— run: certutil -hashfile app-release.apk SHA256 —",
+  minAndroid = "6.0 (API 23)",
+} = Astro.props;
+
+const APK_URL = "https://github.com/Thanh-WuTan/vietaccent/releases/latest/download/app-release.apk";
+const GITHUB_URL = "https://github.com/Thanh-WuTan/vietaccent";
+---
+
+<section id="download" class="py-20 bg-white">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Download VietAccent</h2>
+      <p class="mt-4 text-lg text-slate-500">
+        Direct APK sideload. No Play Store account required. Free forever.
+      </p>
+    </div>
+
+    <div class="bg-slate-50 rounded-3xl border border-slate-200 p-8 sm:p-10">
+      <!-- Primary download button -->
+      <div class="text-center mb-8">
+        <a
+          href={APK_URL}
+          id="main-download-apk"
+          download
+          class="inline-flex items-center gap-3 bg-red-600 text-white font-bold px-10 py-5 rounded-2xl text-xl hover:bg-red-700 transition-colors shadow-xl shadow-red-200"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          Download APK {version}
+        </a>
+        <p class="mt-3 text-sm text-slate-500">
+          Requires Android {minAndroid} or later
+        </p>
+      </div>
+
+      <!-- Trust signal cluster -->
+      <div class="grid sm:grid-cols-2 gap-4 mb-8">
+        <a
+          href={GITHUB_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-start gap-3 bg-white rounded-xl p-4 border border-slate-200 hover:border-red-300 transition-colors"
+        >
+          <svg class="w-5 h-5 mt-0.5 text-slate-700 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+          </svg>
+          <div>
+            <p class="text-sm font-semibold text-slate-800">Open-source</p>
+            <p class="text-xs text-slate-500">View the full source code on GitHub</p>
+          </div>
+        </a>
+
+        <div class="flex items-start gap-3 bg-white rounded-xl p-4 border border-slate-200">
+          <svg class="w-5 h-5 mt-0.5 text-green-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          <div>
+            <p class="text-sm font-semibold text-slate-800">Signed release APK</p>
+            <p class="text-xs text-slate-500">Built with <code class="font-mono">flutter build apk --release</code></p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 bg-white rounded-xl p-4 border border-slate-200">
+          <svg class="w-5 h-5 mt-0.5 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+          </svg>
+          <div>
+            <p class="text-sm font-semibold text-slate-800">Version {version}</p>
+            <p class="text-xs text-slate-500">Released {releaseDate}</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 bg-white rounded-xl p-4 border border-slate-200">
+          <svg class="w-5 h-5 mt-0.5 text-amber-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          </svg>
+          <div>
+            <p class="text-sm font-semibold text-slate-800">Android {minAndroid}+</p>
+            <p class="text-xs text-slate-500">Minimum API level 23</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SHA-256 -->
+      <div class="bg-slate-900 rounded-xl p-4">
+        <p class="text-xs text-slate-400 font-semibold uppercase tracking-widest mb-2">SHA-256 fingerprint</p>
+        <div class="flex items-center gap-3">
+          <code class="text-green-400 font-mono text-xs break-all flex-1 select-all">{sha256}</code>
+          <button
+            id="copy-sha"
+            aria-label="Copy SHA-256 to clipboard"
+            class="shrink-0 text-slate-400 hover:text-white transition-colors"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+          </button>
+        </div>
+        <p class="text-slate-500 text-xs mt-2">
+          Verify on Windows: <code class="font-mono text-slate-400">certutil -hashfile app-release.apk SHA256</code>
+        </p>
+      </div>
+    </div>
+
+    <!-- Install guide -->
+    <div class="mt-10">
+      <h3 class="text-lg font-bold text-slate-900 mb-6 text-center">How to install</h3>
+      <ol class="space-y-4">
+        {[
+          { step: "1", title: "Download the APK", detail: 'Tap "Download APK" above. Your browser will save app-release.apk to your Downloads folder.' },
+          { step: "2", title: "Allow unknown sources", detail: 'On Android go to Settings → Apps → Special app access → Install unknown apps, then enable for your browser or Files app.' },
+          { step: "3", title: "Open the APK", detail: 'Find app-release.apk in Downloads and tap it. Android will prompt you to install — tap "Install".' },
+          { step: "4", title: "Sign in and start learning", detail: "Open VietAccent, sign in with your Google account, and take the placement quiz to begin your personalised learning path." },
+        ].map((s) => (
+          <li class="flex gap-4">
+            <div class="shrink-0 w-8 h-8 bg-red-100 text-red-700 rounded-full flex items-center justify-center text-sm font-bold">
+              {s.step}
+            </div>
+            <div>
+              <p class="font-semibold text-slate-900 text-sm">{s.title}</p>
+              <p class="text-sm text-slate-500 mt-0.5">{s.detail}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>
+
+<script>
+  const btn = document.getElementById("copy-sha");
+  const sha = btn?.previousElementSibling?.textContent?.trim();
+  btn?.addEventListener("click", () => {
+    if (sha) {
+      navigator.clipboard.writeText(sha).then(() => {
+        btn.setAttribute("aria-label", "Copied!");
+        setTimeout(() => btn.setAttribute("aria-label", "Copy SHA-256 to clipboard"), 2000);
+      });
+    }
+  });
+</script>

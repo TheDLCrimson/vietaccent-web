@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import BuiltFor from "../components/BuiltFor.astro";
+import Features from "../components/Features.astro";
+import ScreenshotGallery from "../components/ScreenshotGallery.astro";
+import PronunciationDeepDive from "../components/PronunciationDeepDive.astro";
+import VideoEmbed from "../components/VideoEmbed.astro";
+import TechArchitecture from "../components/TechArchitecture.astro";
+import DownloadSection from "../components/DownloadSection.astro";
+import Faq from "../components/Faq.astro";
+import Footer from "../components/Footer.astro";
+import Analytics from "@vercel/analytics/astro";
+---
+
+<BaseLayout
+  title="VietAccent — Learn Vietnamese. Sound like a native."
+  description="A free Flutter app with AI-powered per-syllable pronunciation scoring, structured lessons, and phrase exploration. Download the APK and start speaking Vietnamese today."
+>
+  <Nav />
+  <main>
+    <Hero />
+    <BuiltFor />
+    <Features />
+    <ScreenshotGallery />
+    <PronunciationDeepDive />
+    <VideoEmbed />
+    <TechArchitecture />
+    <DownloadSection />
+    <Faq />
+  </main>
+  <Footer />
+  <Analytics />
+</BaseLayout>
+
+<script>
+  // Track APK download clicks
+  document.querySelectorAll("[id$='-download-apk'], [id='main-download-apk']").forEach((el) => {
+    el.addEventListener("click", () => {
+      if (typeof window !== "undefined" && (window as any).va) {
+        (window as any).va("event", { name: "apk_download", data: { source: el.id } });
+      }
+    });
+  });
+</script>

@@ -1,0 +1,54 @@
+---
+const faqs = [
+  {
+    q: "Is the APK safe to install?",
+    a: "Yes. VietAccent is fully open-source — you can audit every line of code on GitHub before installing. The release APK is built with <code class='font-mono text-sm'>flutter build apk --release</code> and signed with a stable release key. The SHA-256 fingerprint on the download page lets you verify the file hasn't been tampered with.",
+  },
+  {
+    q: "Why isn't VietAccent on the Play Store?",
+    a: "VietAccent is currently in open beta. Publishing to the Play Store involves a review queue and ongoing compliance overhead that slows down iteration. A direct APK lets beta testers and lecturers install the exact release being evaluated without any gatekeeping. A Play Store listing is planned once the app reaches production stability.",
+  },
+  {
+    q: "Which Android version do I need?",
+    a: "Android 6.0 (API level 23) or later. That covers virtually all Android devices made in the last eight years. An iOS build exists in the codebase but is not yet distributed as a signed binary.",
+  },
+  {
+    q: "Is my data private?",
+    a: "Your account uses Firebase Authentication (Google Sign-In). Audio you record for pronunciation scoring is processed by the VietAccent backend and is not retained beyond the scoring request. No audio is stored permanently. Progress data (XP, streaks, lesson history) is stored in Firebase Firestore linked to your Google account. See the full <a href='/privacy' class='text-red-600 underline hover:text-red-700'>Privacy Policy</a> for details.",
+  },
+  {
+    q: "Is VietAccent free?",
+    a: "Yes — completely free to download and use. There are no in-app purchases, no subscription, and no ads. VietAccent is an open-source academic project distributed under the MIT licence.",
+  },
+];
+---
+
+<section id="faq" class="py-20 bg-slate-50">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Frequently asked questions</h2>
+    </div>
+
+    <div class="space-y-4">
+      {faqs.map((faq, i) => (
+        <details
+          class="group bg-white rounded-2xl border border-slate-200 overflow-hidden"
+          name="faq"
+        >
+          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer list-none font-semibold text-slate-900 hover:text-red-600 transition-colors">
+            {faq.q}
+            <svg
+              class="w-5 h-5 shrink-0 text-slate-400 group-open:rotate-180 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div class="px-6 pb-6 text-slate-600 leading-relaxed text-sm" set:html={faq.a} />
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

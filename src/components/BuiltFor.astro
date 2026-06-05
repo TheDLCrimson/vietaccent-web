@@ -1,0 +1,49 @@
+---
+const audiences = [
+  {
+    emoji: "📚",
+    title: "Students",
+    description:
+      "Build a solid Vietnamese foundation with structured lessons across grammar, vocabulary, and listening. The pronunciation scorer gives you instant, objective feedback — no native speaker required.",
+  },
+  {
+    emoji: "👨‍🏫",
+    title: "Teachers",
+    description:
+      "Recommend VietAccent as a self-study companion. Students can drill tones between classes and arrive with measurable pronunciation data, letting you focus on higher-level fluency work.",
+  },
+  {
+    emoji: "💼",
+    title: "Recruiters",
+    description:
+      "VietAccent is a full-stack mobile project: Flutter MVVM frontend, Django REST backend, Firebase Auth, a speech-processing pipeline, and 435 automated tests. A concrete portfolio piece, not a toy app.",
+  },
+  {
+    emoji: "🔬",
+    title: "Researchers",
+    description:
+      "The open-source FFT-based tone contour analysis and per-syllable scoring pipeline serve as a reproducible baseline for Vietnamese pronunciation research and TTS evaluation.",
+  },
+];
+---
+
+<section id="built-for" class="py-20 bg-slate-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Built for everyone who needs Vietnamese</h2>
+      <p class="mt-4 text-lg text-slate-500 max-w-2xl mx-auto">
+        Whether you're just starting or evaluating the engineering behind it, VietAccent has something for you.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {audiences.map((a) => (
+        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+          <div class="text-4xl mb-4">{a.emoji}</div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">{a.title}</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">{a.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

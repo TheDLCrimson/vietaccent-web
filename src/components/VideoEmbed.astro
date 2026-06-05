@@ -1,0 +1,77 @@
+---
+// Replace YOUTUBE_ID with the actual video ID once the demo is published.
+const YOUTUBE_ID = "dQw4w9WgXcQ"; // placeholder — replace before going live
+const THUMBNAIL = `https://i.ytimg.com/vi/${YOUTUBE_ID}/maxresdefault.jpg`;
+---
+
+<section id="demo" class="py-20 bg-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Watch the demo</h2>
+      <p class="mt-4 text-lg text-slate-500">See pronunciation scoring, lessons, and the phrase explorer in a 3-minute walkthrough.</p>
+    </div>
+
+    <!-- Click-to-load YouTube facade — no autoplay iframe, no third-party cookie on page load -->
+    <div
+      id="yt-facade"
+      class="group relative rounded-2xl overflow-hidden cursor-pointer shadow-xl aspect-video bg-slate-900"
+      role="button"
+      tabindex="0"
+      aria-label="Play demo video"
+    >
+      <!-- Thumbnail -->
+      <img
+        src={THUMBNAIL}
+        alt="VietAccent demo video thumbnail"
+        class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-90 transition-opacity"
+        loading="lazy"
+        width="1280"
+        height="720"
+      />
+      <!-- Play button -->
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+          <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </div>
+      </div>
+      <!-- Label -->
+      <div class="absolute bottom-4 left-4 bg-black/60 text-white text-sm font-medium px-3 py-1 rounded-lg">
+        3 min · VietAccent full walkthrough
+      </div>
+    </div>
+
+    <!-- Hidden iframe, injected on click -->
+    <template id="yt-iframe-tpl">
+      <iframe
+        src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_ID}?autoplay=1&rel=0`}
+        title="VietAccent demo video"
+        class="absolute inset-0 w-full h-full"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </template>
+  </div>
+</section>
+
+<script>
+  const facade = document.getElementById("yt-facade");
+  const tpl = document.getElementById("yt-iframe-tpl") as HTMLTemplateElement;
+
+  function loadVideo() {
+    if (!facade || !tpl) return;
+    const clone = tpl.content.cloneNode(true);
+    facade.classList.add("relative");
+    facade.replaceChildren(clone);
+    facade.removeEventListener("click", loadVideo);
+    facade.removeEventListener("keydown", handleKey);
+  }
+
+  function handleKey(e: KeyboardEvent) {
+    if (e.key === "Enter" || e.key === " ") loadVideo();
+  }
+
+  facade?.addEventListener("click", loadVideo);
+  facade?.addEventListener("keydown", handleKey);
+</script>

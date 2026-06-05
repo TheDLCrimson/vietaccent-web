@@ -1,0 +1,75 @@
+---
+layout: ../layouts/ContentLayout.astro
+title: Privacy Policy — VietAccent
+description: How VietAccent collects, uses, and protects your data.
+---
+
+# Privacy Policy
+
+**Last updated: 5 June 2025**
+
+This policy describes what data VietAccent collects, why, and how it is handled. VietAccent is an open-source educational app distributed as an Android APK.
+
+---
+
+## 1. Data We Collect
+
+| Data | Source | Purpose |
+|---|---|---|
+| Google account (email, display name, profile photo) | Firebase Authentication / Google Sign-In | Account creation and identification |
+| Audio recordings | Recorded by the user in the app | Sent to the VietAccent backend for pronunciation scoring; **not retained** after scoring |
+| Typed text (phrases entered in Phrase Explorer) | User input | Sent to Gemini AI for contextual explanation |
+| Lesson progress, XP, streaks, achievements | User activity | Stored in Firebase Firestore to persist progress across devices |
+| App usage analytics | Vercel Analytics (cookieless) | Understand which features are used; improve the app |
+
+> **Audio note:** Audio recordings are transmitted to the backend for real-time pronunciation analysis and are **deleted immediately** after the score is returned. We do not build audio databases or voice profiles.
+
+---
+
+## 2. Third Parties
+
+| Service | Provider | Data shared |
+|---|---|---|
+| Firebase Authentication | Google LLC | Google account info |
+| Firebase Firestore | Google LLC | Progress and settings |
+| Gemini AI API | Google LLC | Phrase text for explanation generation |
+| VietAccent backend | Self-hosted (VinUniversity / project author) | Audio (temporary), text phrases |
+| Vercel Analytics | Vercel Inc. | Cookieless page-view analytics (no PII) |
+
+---
+
+## 3. Data Retention
+
+- **Account data** is retained while your account exists. Deleting your account removes all Firestore data.
+- **Audio** is not stored beyond the duration of a scoring request (seconds).
+- **Vercel Analytics** data is aggregated and anonymised; no personal identifiers are stored.
+
+---
+
+## 4. Your Rights
+
+You may request deletion of your account and all associated data by emailing [22thanh.va@vinuni.edu.vn](mailto:22thanh.va@vinuni.edu.vn). We will process the request within 30 days.
+
+---
+
+## 5. Children
+
+VietAccent is not directed at children under 13. We do not knowingly collect data from children under 13. If you believe a child has provided us with data, contact us immediately.
+
+---
+
+## 6. GDPR / International Users
+
+VietAccent is a student project based in Vietnam. We do not knowingly process personal data of EU residents in a commercial capacity. If you are located in the EU and have concerns, please contact us.
+
+---
+
+## 7. Changes
+
+We may update this policy as the app evolves. The "Last updated" date at the top of this page will reflect any changes. Continued use of the app after an update constitutes acceptance of the revised policy.
+
+---
+
+## 8. Contact
+
+Questions? Email [22thanh.va@vinuni.edu.vn](mailto:22thanh.va@vinuni.edu.vn) or open an issue on [GitHub](https://github.com/Thanh-WuTan/vietaccent).
