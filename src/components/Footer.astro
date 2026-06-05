@@ -2,29 +2,28 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="bg-slate-900 text-slate-400 py-12">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<footer style="background: var(--color-ink); color: var(--color-text-muted);">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
       <!-- Brand -->
-      <div class="flex items-center gap-2 text-white font-bold text-lg">
-        <span class="text-2xl">🇻🇳</span>
-        VietAccent
-      </div>
+      <a href="/" class="flex items-center gap-2.5 font-bold text-lg" style="font-family: var(--font-display);">
+        <span class="w-8 h-8 rounded-lg bg-[#6366F1] flex items-center justify-center text-white text-sm font-black">V</span>
+        <span class="text-white">VietAccent</span>
+      </a>
 
       <!-- Links -->
-      <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
-        <a href="https://github.com/Thanh-WuTan/vietaccent" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
-          GitHub
-        </a>
-        <a href="/privacy" class="hover:text-white transition-colors">Privacy</a>
-        <a href="/terms" class="hover:text-white transition-colors">Terms</a>
-        <a href="/changelog" class="hover:text-white transition-colors">Changelog</a>
-        <a href="mailto:22thanh.va@vinuni.edu.vn" class="hover:text-white transition-colors">Contact</a>
+      <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm" style="font-family: var(--font-body);">
+        <a href="https://github.com/Thanh-WuTan/vietaccent" target="_blank" rel="noopener noreferrer"
+          class="hover:text-white transition-colors duration-150">GitHub</a>
+        <a href="/privacy"   class="hover:text-white transition-colors duration-150">Privacy</a>
+        <a href="/terms"     class="hover:text-white transition-colors duration-150">Terms</a>
+        <a href="/changelog" class="hover:text-white transition-colors duration-150">Changelog</a>
+        <a href="mailto:22thanh.va@vinuni.edu.vn" class="hover:text-white transition-colors duration-150">Contact</a>
       </nav>
 
       <!-- Copyright -->
-      <p class="text-xs text-slate-500">
-        © {year} VietAccent. MIT licence. Brand assets all rights reserved.
+      <p class="text-xs" style="color: #6B6B6B; font-family: var(--font-body);">
+        © {year} VietAccent. MIT licence.<br class="sm:hidden" /> Brand assets all rights reserved.
       </p>
     </div>
   </div>

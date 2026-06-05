@@ -1,19 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#dc2626"/>
-      <stop offset="100%" stop-color="#991b1b"/>
+      <stop offset="0%" stop-color="#0C0B1A"/>
+      <stop offset="100%" stop-color="#13122A"/>
     </linearGradient>
+    <radialGradient id="glow1" cx="30%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#6366F1" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#6366F1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="80%" cy="70%" r="40%">
+      <stop offset="0%" stop-color="#F97316" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#F97316" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <!-- Flag stripe accent -->
-  <rect x="0" y="0" width="12" height="630" fill="#fbbf24"/>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="4" height="630" fill="#6366F1"/>
+  <!-- Logo mark -->
+  <rect x="80" y="80" width="56" height="56" rx="12" fill="#6366F1"/>
+  <text x="108" y="121" font-family="system-ui,sans-serif" font-weight="900" font-size="34" fill="white" text-anchor="middle">V</text>
   <!-- App name -->
-  <text x="100" y="280" font-family="system-ui,sans-serif" font-weight="900" font-size="96" fill="white">VietAccent</text>
+  <text x="80" y="310" font-family="system-ui,sans-serif" font-weight="900" font-size="90" fill="white" letter-spacing="-3">VietAccent</text>
   <!-- Tagline -->
-  <text x="100" y="360" font-family="system-ui,sans-serif" font-weight="400" font-size="40" fill="rgba(255,255,255,0.85)">Learn Vietnamese. Sound like a native.</text>
+  <text x="80" y="380" font-family="system-ui,sans-serif" font-weight="400" font-size="36" fill="#818CF8">Learn Vietnamese. Sound like a native.</text>
   <!-- Sub-label -->
-  <text x="100" y="430" font-family="system-ui,sans-serif" font-weight="400" font-size="28" fill="rgba(255,255,255,0.6)">AI pronunciation scoring · Structured lessons · Free APK</text>
-  <!-- Flag emoji stand-in -->
-  <text x="1060" y="580" font-family="system-ui,sans-serif" font-size="120" fill="white" opacity="0.15">🇻🇳</text>
+  <text x="80" y="436" font-family="system-ui,sans-serif" font-weight="400" font-size="24" fill="#6B6B6B">AI pronunciation scoring · Structured lessons · Free APK</text>
+  <!-- Indigo pill badge -->
+  <rect x="80" y="488" width="220" height="36" rx="18" fill="rgba(99,102,241,0.15)" stroke="#6366F1" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="190" y="511" font-family="system-ui,sans-serif" font-weight="600" font-size="16" fill="#A5B4FC" text-anchor="middle">Open-source · Android 6.0+</text>
 </svg>

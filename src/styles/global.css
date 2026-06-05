@@ -1,1 +1,53 @@
 @import "tailwindcss";
+/* Fonts are loaded via <link> in BaseLayout.astro — not here, to avoid CSS @import ordering issues */
+
+@theme {
+  /* Brand palette — from app DESIGN.md */
+  --color-primary:       #6366F1;
+  --color-primary-hover: #4F46E5;
+  --color-accent:        #F97316;
+  --color-accent-hover:  #EA6C0A;
+
+  /* Surface */
+  --color-bg:          #FAFAFA;
+  --color-surface:     #FFFFFF;
+  --color-surface-alt: #F4F4F5;
+  --color-border:      #E8E8EC;
+
+  /* Text */
+  --color-text-primary:   #0A0A0A;
+  --color-text-secondary: #6B6B6B;
+  --color-text-muted:     #9C9C9C;
+
+  /* Semantic */
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-error:   #EF4444;
+
+  /* Dark surfaces — landing page only (not in app) */
+  --color-ink:        #0C0B1A;
+  --color-ink-raised: #13122A;
+
+  /* Typography */
+  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body:    "DM Sans", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", monospace;
+
+  /* Radius scale — matches app */
+  --radius-sm:  4px;
+  --radius-md:  6px;
+  --radius-lg:  12px;
+  --radius-xl:  16px;
+  --radius-pill: 9999px;
+}
+
+html {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.03em;
+}

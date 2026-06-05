@@ -2,28 +2,35 @@
 const APK_URL = "https://github.com/Thanh-WuTan/vietaccent/releases/latest/download/app-release.apk";
 ---
 
-<nav class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur-sm border-b border-slate-100">
+<nav class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur-md border-b border-[#E8E8EC]">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-    <a href="/" class="flex items-center gap-2 font-bold text-xl text-red-600">
-      <span class="text-2xl">🇻🇳</span>
-      VietAccent
+    <!-- Brand -->
+    <a href="/" class="flex items-center gap-2.5 font-bold text-lg" style="font-family: var(--font-display)">
+      <span class="w-8 h-8 rounded-lg bg-[#6366F1] flex items-center justify-center text-white text-sm font-black">V</span>
+      <span style="color: var(--color-text-primary)">VietAccent</span>
     </a>
 
-    <div class="hidden sm:flex items-center gap-6 text-sm font-medium text-slate-600">
-      <a href="/#features" class="hover:text-red-600 transition-colors">Features</a>
-      <a href="/#pronunciation" class="hover:text-red-600 transition-colors">Pronunciation</a>
-      <a href="/#tech" class="hover:text-red-600 transition-colors">Tech</a>
-      <a href="/#faq" class="hover:text-red-600 transition-colors">FAQ</a>
+    <!-- Links -->
+    <div class="hidden sm:flex items-center gap-6 text-sm font-medium" style="color: var(--color-text-secondary)">
+      <a href="/#features"      class="hover:text-[#6366F1] transition-colors duration-150">Features</a>
+      <a href="/#pronunciation" class="hover:text-[#6366F1] transition-colors duration-150">Pronunciation</a>
+      <a href="/#tech"          class="hover:text-[#6366F1] transition-colors duration-150">Tech</a>
+      <a href="/#faq"           class="hover:text-[#6366F1] transition-colors duration-150">FAQ</a>
     </div>
 
+    <!-- CTA -->
     <a
       href={APK_URL}
       id="nav-download-apk"
-      class="inline-flex items-center gap-2 bg-red-600 text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
       download
+      class="inline-flex items-center gap-2 text-white text-sm font-semibold px-4 py-2 rounded-md transition-all duration-150 hover:-translate-y-px"
+      style="background: var(--color-primary); box-shadow: 0 4px 12px rgba(99,102,241,0.35);"
+      onmouseover="this.style.background='var(--color-primary-hover)'"
+      onmouseout="this.style.background='var(--color-primary)'"
     >
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
       </svg>
       Download APK
     </a>

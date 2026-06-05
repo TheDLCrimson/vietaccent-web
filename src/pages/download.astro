@@ -13,15 +13,20 @@ import Analytics from "@vercel/analytics/astro";
 >
   <Nav />
   <main class="pt-16">
-    <DownloadSection />
+    <DownloadSection
+      version="v1.0.0"
+      releaseDate="2026-06-05"
+      sha256="d286ad7c5a1f15e840c8cd5d6793712dda1bcc864ecd833e317f4074791c5864"
+      minAndroid="6.0 (API 23)"
+    />
 
     <!-- Standalone trust note -->
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 text-center">
-      <p class="text-sm text-slate-500">
+      <p class="text-sm" style="color: var(--color-text-secondary); font-family: var(--font-body);">
         Having trouble? Check the
-        <a href="/#faq" class="text-red-600 underline hover:text-red-700">FAQ</a>
+        <a href="/#faq" style="color: var(--color-primary);" class="underline">FAQ</a>
         or
-        <a href="mailto:22thanh.va@vinuni.edu.vn" class="text-red-600 underline hover:text-red-700">contact us</a>.
+        <a href="mailto:22thanh.va@vinuni.edu.vn" style="color: var(--color-primary);" class="underline">contact us</a>.
       </p>
     </div>
   </main>

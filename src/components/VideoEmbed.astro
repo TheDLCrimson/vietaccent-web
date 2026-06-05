@@ -4,11 +4,12 @@ const YOUTUBE_ID = "dQw4w9WgXcQ"; // placeholder — replace before going live
 const THUMBNAIL = `https://i.ytimg.com/vi/${YOUTUBE_ID}/maxresdefault.jpg`;
 ---
 
-<section id="demo" class="py-20 bg-white">
+<section id="demo" class="py-24" style="background: var(--color-surface);">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Watch the demo</h2>
-      <p class="mt-4 text-lg text-slate-500">See pronunciation scoring, lessons, and the phrase explorer in a 3-minute walkthrough.</p>
+      <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color: var(--color-primary); font-family: var(--font-display);">Demo</p>
+      <h2 class="text-3xl sm:text-4xl font-black" style="font-family: var(--font-display); color: var(--color-text-primary);">Watch the demo</h2>
+      <p class="mt-4 text-base" style="color: var(--color-text-secondary); font-family: var(--font-body);">See pronunciation scoring, lessons, and the phrase explorer in a 3-minute walkthrough.</p>
     </div>
 
     <!-- Click-to-load YouTube facade — no autoplay iframe, no third-party cookie on page load -->

@@ -27,21 +27,31 @@ const audiences = [
 ];
 ---
 
-<section id="built-for" class="py-20 bg-slate-50">
+<section id="built-for" class="py-24" style="background: var(--color-bg);">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Built for everyone who needs Vietnamese</h2>
-      <p class="mt-4 text-lg text-slate-500 max-w-2xl mx-auto">
-        Whether you're just starting or evaluating the engineering behind it, VietAccent has something for you.
+      <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color: var(--color-primary); font-family: var(--font-display);">
+        Who it's for
+      </p>
+      <h2 class="text-3xl sm:text-4xl font-black" style="font-family: var(--font-display); color: var(--color-text-primary);">
+        Built for everyone who needs Vietnamese
+      </h2>
+      <p class="mt-4 text-base max-w-xl mx-auto" style="color: var(--color-text-secondary); font-family: var(--font-body);">
+        Whether you're just starting out or evaluating the engineering behind it, VietAccent has something for you.
       </p>
     </div>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
       {audiences.map((a) => (
-        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-          <div class="text-4xl mb-4">{a.emoji}</div>
-          <h3 class="text-lg font-bold text-slate-900 mb-2">{a.title}</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">{a.description}</p>
+        <div
+          class="rounded-xl p-6 border transition-all duration-200 hover:-translate-y-0.5 cursor-default group"
+          style="background: var(--color-surface); border-color: var(--color-border); box-shadow: none;"
+          onmouseover="this.style.boxShadow='0 8px 30px rgba(0,0,0,0.08)'; this.style.borderColor='rgba(99,102,241,0.3)';"
+          onmouseout="this.style.boxShadow='none'; this.style.borderColor='var(--color-border)';"
+        >
+          <div class="text-3xl mb-4">{a.emoji}</div>
+          <h3 class="font-bold mb-2 text-base" style="font-family: var(--font-display); color: var(--color-text-primary);">{a.title}</h3>
+          <p class="text-sm leading-relaxed" style="color: var(--color-text-secondary); font-family: var(--font-body);">{a.description}</p>
         </div>
       ))}
     </div>
