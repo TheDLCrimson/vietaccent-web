@@ -6,7 +6,7 @@ description: Release history and what's new in each version of VietAccent.
 
 # Changelog
 
-All notable changes to VietAccent are listed here. Releases are tagged in the [GitHub repository](https://github.com/Thanh-WuTan/vietaccent/releases).
+All notable changes to VietAccent are listed here.
 
 ---
 
@@ -17,18 +17,19 @@ All notable changes to VietAccent are listed here. Releases are tagged in the [G
 First public beta distributed via direct APK download.
 
 ### Features shipped
-- Structured Vietnamese lesson system with 9+ interactive exercise types
-- AI-powered per-syllable pronunciation scoring with tone contour analysis
-- Phrase Explorer with Northern and Southern accent audio playback
+- Structured Vietnamese lesson system with 11 interactive exercise types
+- Dialect-aware pronunciation scoring (MFA + PhoWhisper + CREPE) with per-syllable feedback against Hanoi or Saigon targets
+- Phrase Explorer with Hanoi and Saigon accent audio (ElevenLabs TTS) and AI-generated contextual explanations
 - Progress dashboard: XP, daily streaks, and achievements
 - Firebase Authentication with Google Sign-In
-- Django REST backend for scoring and data persistence
+- Django REST backend with PostgreSQL and MinIO for scoring and data persistence
 
 ### Technical
 - Flutter MVVM architecture with Provider state management and GetIt dependency injection
-- 435 automated tests (unit, widget, integration)
+- 232 backend tests (83% line coverage) + 465+ mobile tests (unit, widget, integration)
 - Release APK signed and SHA-256 published
+- Docker Swarm deployment on self-hosted server
 
 ---
 
-*More releases will be appended here as the project evolves. Populate from GitHub Release notes.*
+*More releases will be appended here as the project evolves.*

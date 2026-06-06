@@ -2,7 +2,7 @@
 const faqs = [
   {
     q: "Is the APK safe to install?",
-    a: "Yes. VietAccent is fully open-source — you can audit every line of code on GitHub before installing. The release APK is built with <code style=\"font-family:var(--font-mono);font-size:0.8em;background:var(--color-surface-alt);padding:1px 4px;border-radius:4px;\">flutter build apk --release</code> and the SHA-256 fingerprint on the download page lets you verify the file hasn't been tampered with.",
+    a: "Yes. The release APK is built with <code style=\"font-family:var(--font-mono);font-size:0.8em;background:var(--color-surface-alt);padding:1px 4px;border-radius:4px;\">flutter build apk --release</code> and signed with a dedicated keystore. The SHA-256 fingerprint on the download page lets you verify the file hasn't been tampered with before installing.",
   },
   {
     q: "Why isn't VietAccent on the Play Store?",
@@ -14,11 +14,15 @@ const faqs = [
   },
   {
     q: "Is my data private?",
-    a: "Your account uses Firebase Authentication (Google Sign-In). Audio you record for pronunciation scoring is processed server-side and is not retained after scoring. Progress data is stored in Firebase Firestore linked to your Google account. See the full <a href='/privacy' style='color:var(--color-primary);text-decoration:underline;'>Privacy Policy</a> for details.",
+    a: "Your account uses Firebase Authentication (Google Sign-In only — no passwords are stored by VietAccent). Audio you record for pronunciation scoring is processed server-side and is not retained after scoring. Progress and lesson data are stored in a PostgreSQL database linked to your account. See the full <a href='/privacy' style='color:var(--color-primary);text-decoration:underline;'>Privacy Policy</a> for details.",
   },
   {
     q: "Is VietAccent free?",
-    a: "Completely free — no in-app purchases, no subscription, no ads. VietAccent is an open-source academic project distributed under the MIT licence.",
+    a: "Completely free — no in-app purchases, no subscription, no ads. VietAccent is a VinUniversity capstone project built for research and education.",
+  },
+  {
+    q: "Which dialect does VietAccent use?",
+    a: "Both. You can choose Hanoi (Northern) or Saigon (Southern) as your pronunciation target when you start a lesson, and the scoring pipeline evaluates your speech against that dialect specifically. Phrase Explorer also streams native-quality audio for both accents via ElevenLabs TTS.",
   },
 ];
 ---

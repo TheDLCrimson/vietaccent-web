@@ -1,14 +1,17 @@
 ---
 const screenshots = [
-  { label: "Pronunciation Scoring", desc: "Per-syllable AI feedback + tone contour", placeholder: "🎤", accent: "#6366F1" },
-  { label: "Interactive Lesson",    desc: "Multiple-choice and fill-in-the-blank",  placeholder: "📝", accent: "#8B5CF6" },
-  { label: "Phrase Explorer",       desc: "North & South accent audio + AI context", placeholder: "🔊", accent: "#06B6D4" },
-  { label: "Progress Dashboard",    desc: "XP, streaks, achievements, weak tones",  placeholder: "📊", accent: "#F97316" },
-  { label: "Lesson Library",        desc: "9+ lesson types by skill level",          placeholder: "🏫", accent: "#10B981" },
+  { src: "/assets/screenshots/pronunciation_result.jpg",    label: "Pronunciation Result",  desc: "Per-syllable score + tone breakdown" },
+  { src: "/assets/screenshots/pronunciation_test_page.jpg", label: "Pronunciation Test",    desc: "Record and submit against Hanoi or Saigon" },
+  { src: "/assets/screenshots/exercise_page.jpg",           label: "Exercise",              desc: "Interactive lesson exercise" },
+  { src: "/assets/screenshots/grammar_page.jpg",            label: "Grammar Notes",         desc: "In-lesson grammar explanations" },
+  { src: "/assets/screenshots/vocabulary_page.jpg",         label: "Vocabulary",            desc: "Vocabulary exercise type" },
+  { src: "/assets/screenshots/phrase_explorer.jpg",         label: "Phrase Explorer",       desc: "Hanoi & Saigon audio + AI context" },
+  { src: "/assets/screenshots/dashboard_page.jpg",          label: "Dashboard",             desc: "Home screen and lesson map" },
+  { src: "/assets/screenshots/progress_tracker.jpg",        label: "Progress Tracker",      desc: "XP, streaks, and achievements" },
 ];
 ---
 
-<section id="screenshots" class="py-24" style="background: var(--color-bg);">
+<section id="screenshots" class="py-24 overflow-hidden" style="background: var(--color-bg);">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
       <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color: var(--color-primary); font-family: var(--font-display);">
@@ -17,39 +20,39 @@ const screenshots = [
       <h2 class="text-3xl sm:text-4xl font-black" style="font-family: var(--font-display); color: var(--color-text-primary);">
         See it in action
       </h2>
-      <p class="mt-4 text-base max-w-xl mx-auto" style="color: var(--color-text-secondary);">
-        Real screenshots coming soon — captured from Android emulator with device frame.
-      </p>
-    </div>
-
-    <div class="flex gap-5 overflow-x-auto pb-4 sm:grid sm:grid-cols-3 lg:grid-cols-5 sm:overflow-visible snap-x snap-mandatory">
-      {screenshots.map((s) => (
-        <div class="shrink-0 w-44 sm:w-auto snap-center">
-          <div
-            class="rounded-[1.75rem] p-2.5 shadow-lg"
-            style="background: #13122A; box-shadow: 0 20px 40px rgba(0,0,0,0.15);"
-          >
-            <div class="rounded-[1.4rem] overflow-hidden aspect-[9/19]"
-              style="background: var(--color-ink);">
-              <div class="w-full h-full flex flex-col items-center justify-center text-white p-4">
-                <div
-                  class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-3"
-                  style={`background: ${s.accent}22;`}
-                >
-                  {s.placeholder}
-                </div>
-                <div class="text-xs font-bold text-center" style={`color: ${s.accent}; font-family: var(--font-display);`}>
-                  {s.label}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="mt-3 text-center px-1">
-            <p class="text-sm font-semibold" style="font-family: var(--font-display); color: var(--color-text-primary);">{s.label}</p>
-            <p class="text-xs mt-0.5" style="color: var(--color-text-muted);">{s.desc}</p>
-          </div>
-        </div>
-      ))}
     </div>
   </div>
+
+  <!-- Full-bleed horizontal scroll -->
+  <div class="flex gap-4 overflow-x-auto pb-6 px-4 sm:px-8 lg:px-16 snap-x snap-mandatory scroll-smooth" style="scrollbar-width: none;">
+    {screenshots.map((s) => (
+      <div class="shrink-0 w-40 sm:w-44 snap-center">
+        <!-- Phone frame -->
+        <div
+          class="rounded-[2rem] p-2 shadow-xl"
+          style="background: #13122A; box-shadow: 0 24px 48px rgba(0,0,0,0.2), 0 0 0 1px rgba(255,255,255,0.06);"
+        >
+          <div class="rounded-[1.6rem] overflow-hidden aspect-[9/19] bg-black">
+            <img
+              src={s.src}
+              alt={s.label + " — VietAccent app screenshot"}
+              loading="lazy"
+              decoding="async"
+              class="w-full h-full object-cover object-top"
+            />
+          </div>
+        </div>
+        <!-- Label -->
+        <div class="mt-3 text-center px-1">
+          <p class="text-sm font-semibold" style="font-family: var(--font-display); color: var(--color-text-primary);">{s.label}</p>
+          <p class="text-xs mt-0.5" style="color: var(--color-text-muted);">{s.desc}</p>
+        </div>
+      </div>
+    ))}
+  </div>
 </section>
+
+<style>
+  /* Hide scrollbar across browsers */
+  div[class*="overflow-x-auto"]::-webkit-scrollbar { display: none; }
+</style>

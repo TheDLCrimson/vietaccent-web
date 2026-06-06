@@ -3,26 +3,22 @@ const audiences = [
   {
     emoji: "📚",
     title: "Students",
-    description:
-      "Build a solid Vietnamese foundation with structured lessons across grammar, vocabulary, and listening. The pronunciation scorer gives you instant, objective feedback — no native speaker required.",
+    description: "Structured lessons + instant per-syllable pronunciation feedback. Pick Hanoi or Saigon and get scored against the right target.",
   },
   {
     emoji: "👨‍🏫",
     title: "Teachers",
-    description:
-      "Recommend VietAccent as a self-study companion. Students can drill tones between classes and arrive with measurable pronunciation data, letting you focus on higher-level fluency work.",
+    description: "Assign as a self-study companion. Students practise tone accuracy between classes and arrive with measurable data.",
   },
   {
     emoji: "💼",
     title: "Recruiters",
-    description:
-      "VietAccent is a full-stack mobile project: Flutter MVVM frontend, Django REST backend, Firebase Auth, a speech-processing pipeline, and 435 automated tests. A concrete portfolio piece, not a toy app.",
+    description: "Flutter MVVM · Django REST · PostgreSQL · MFA + PhoWhisper + CREPE pipeline · 700+ tests at 83% backend coverage.",
   },
   {
-    emoji: "🔬",
-    title: "Researchers",
-    description:
-      "The open-source FFT-based tone contour analysis and per-syllable scoring pipeline serve as a reproducible baseline for Vietnamese pronunciation research and TTS evaluation.",
+    emoji: "🌏",
+    title: "Heritage Learners",
+    description: "Most apps only teach Northern Vietnamese. VietAccent treats Hanoi and Saigon as equal first-class targets.",
   },
 ];
 ---
@@ -37,15 +33,15 @@ const audiences = [
         Built for everyone who needs Vietnamese
       </h2>
       <p class="mt-4 text-base max-w-xl mx-auto" style="color: var(--color-text-secondary); font-family: var(--font-body);">
-        Whether you're just starting out or evaluating the engineering behind it, VietAccent has something for you.
+        Whether you're a beginner, a teacher, a recruiter, or a heritage speaker — VietAccent has something for you.
       </p>
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
       {audiences.map((a) => (
         <div
-          class="rounded-xl p-6 border transition-all duration-200 hover:-translate-y-0.5 cursor-default group"
-          style="background: var(--color-surface); border-color: var(--color-border); box-shadow: none;"
+          class="rounded-xl p-6 border transition-all duration-200 hover:-translate-y-0.5 cursor-default"
+          style="background: var(--color-surface); border-color: var(--color-border);"
           onmouseover="this.style.boxShadow='0 8px 30px rgba(0,0,0,0.08)'; this.style.borderColor='rgba(99,102,241,0.3)';"
           onmouseout="this.style.boxShadow='none'; this.style.borderColor='var(--color-border)';"
         >

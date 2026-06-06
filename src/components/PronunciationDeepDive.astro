@@ -1,10 +1,10 @@
 ---
 const steps = [
-  { num: "01", title: "Record your voice",   detail: "Tap the microphone and say the target word or phrase. The app captures your audio in real time." },
-  { num: "02", title: "FFT tone analysis",   detail: "A Fast Fourier Transform decomposes your pitch contour and compares it against the reference tone curve for that syllable." },
-  { num: "03", title: "Per-syllable scoring",detail: "Each syllable receives an independent 0–100 score. A traffic-light indicator (green / yellow / red) gives instant at-a-glance feedback." },
-  { num: "04", title: "Tone contour chart",  detail: "An overlay chart plots your pitch contour against the ideal. See exactly where your tone rises, falls, or breaks too early." },
-  { num: "05", title: "Aggregate feedback",  detail: "A weighted average across syllables gives a word-level score. Weak syllables are highlighted so you know what to re-drill." },
+  { num: "01", title: "Record your voice",          detail: "Tap the microphone and say the target word or phrase. The app captures 16kHz mono audio in real time." },
+  { num: "02", title: "Forced alignment (MFA)",     detail: "The Montreal Forced Aligner (Kaldi-based) maps your audio to the reference transcription at the phone level, producing per-phoneme timing and a goodness-of-pronunciation score for each segment." },
+  { num: "03", title: "ASR check (PhoWhisper)",     detail: "PhoWhisper-small — VinAI's Vietnamese fine-tune of Whisper — transcribes what you actually said. A Needleman-Wunsch alignment then detects any mispronounced or skipped syllables." },
+  { num: "04", title: "Pitch extraction (CREPE)",   detail: "CREPE (torchcrepe) extracts your F0 pitch contour per syllable and compares it against the reference tone curve. This is the primary signal for tone-class scoring." },
+  { num: "05", title: "Score & feedback",           detail: "Per-syllable score = 0.6 × text_score + 0.4 × tone_score. A traffic-light indicator (green / yellow / red) gives instant at-a-glance feedback, and weak syllables are flagged for re-drill." },
 ];
 
 const tones = [
@@ -27,10 +27,10 @@ const tones = [
         Core Differentiator
       </span>
       <h2 class="text-3xl sm:text-4xl font-black text-white" style="font-family: var(--font-display);">
-        AI Pronunciation Scoring
+        Dialect-Aware Pronunciation Scoring
       </h2>
       <p class="mt-4 text-base max-w-2xl mx-auto leading-relaxed" style="color: #9C9C9C; font-family: var(--font-body);">
-        Vietnamese has 6 tones. Getting them wrong changes the word entirely. VietAccent's scoring pipeline gives you objective, per-syllable feedback that no flashcard app can match.
+        Vietnamese has 6 tones — getting them wrong changes the word entirely. VietAccent fuses three independent signals (forced alignment, ASR, and pitch extraction) to give you objective, per-syllable feedback scored against the dialect you're learning.
       </p>
     </div>
 
@@ -40,8 +40,6 @@ const tones = [
         <div
           class="rounded-xl p-4 text-center border transition-colors duration-150"
           style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08);"
-          onmouseover={`this.style.background='rgba(${t.color},0.08)'; this.style.borderColor='${t.color}44';`}
-          onmouseout="this.style.background='rgba(255,255,255,0.04)'; this.style.borderColor='rgba(255,255,255,0.08)';"
         >
           <div class="text-3xl font-black mb-1 text-white" style="font-family: var(--font-display);">{t.symbol}</div>
           <div class="w-full h-0.5 rounded-full mb-2.5" style={`background: ${t.color};`}></div>
@@ -71,13 +69,13 @@ const tones = [
       style="background: rgba(99,102,241,0.06); border-color: rgba(99,102,241,0.2);"
     >
       <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color: #6366F1; font-family: var(--font-display);">
-        Scoring formula
+        Per-syllable scoring formula
       </p>
       <code class="block text-base mb-3" style="color: #A5B4FC; font-family: var(--font-mono);">
-        word_score = Σ (syllable_score × weight) / Σ weight
+        score = 0.6 × text_score + 0.4 × tone_score
       </code>
       <p class="text-sm" style="color: #6B6B6B; font-family: var(--font-body);">
-        Syllables are weighted by position and tonal complexity. The final score maps to a letter grade and a targeted re-drill suggestion.
+        Text score comes from MFA forced alignment + PhoWhisper ASR. Tone score comes from CREPE F0 pitch contour matching. The weighted sum maps to a letter grade and a targeted re-drill suggestion.
       </p>
     </div>
   </div>

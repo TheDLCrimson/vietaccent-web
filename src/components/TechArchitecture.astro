@@ -3,7 +3,7 @@ const stack = [
   {
     category: "Mobile",
     items: [
-      { name: "Flutter",   note: "iOS + Android + Web" },
+      { name: "Flutter",   note: "Cross-platform UI toolkit" },
       { name: "MVVM",      note: "Provider state management" },
       { name: "GetIt",     note: "Dependency injection" },
     ],
@@ -12,31 +12,35 @@ const stack = [
     category: "Backend",
     items: [
       { name: "Django REST Framework", note: "Python API server" },
-      { name: "Firebase Authentication", note: "Google Sign-In" },
-      { name: "Firebase Firestore",    note: "User data & progress" },
+      { name: "PostgreSQL",            note: "Relational data store" },
+      { name: "MinIO",                 note: "S3-compatible object storage" },
+      { name: "Docker Swarm",          note: "Container orchestration" },
     ],
   },
   {
     category: "AI / Audio",
     items: [
-      { name: "FFT tone analysis",  note: "Pitch contour extraction" },
-      { name: "Per-syllable scorer",note: "Custom scoring model" },
-      { name: "Gemini AI",          note: "Phrase explanations (backend)" },
-      { name: "ElevenLabs TTS",     note: "North/South accent audio" },
+      { name: "MFA (Kaldi)",       note: "Phone-level forced alignment" },
+      { name: "PhoWhisper-small",  note: "Vietnamese ASR — VinAI fine-tune" },
+      { name: "CREPE (torchcrepe)",note: "F0 pitch contour extraction" },
+      { name: "OpenAI API",        note: "Phrase explanations (gpt-4o-mini)" },
+      { name: "ElevenLabs TTS",   note: "Hanoi & Saigon accent audio" },
     ],
   },
   {
     category: "Quality",
     items: [
-      { name: "435 automated tests", note: "Unit + integration + widget" },
-      { name: "CI-ready",            note: "Flutter test suite" },
+      { name: "232 backend tests",  note: "83% line coverage, Django test suite" },
+      { name: "465+ mobile tests",  note: "Unit + widget + integration" },
+      { name: "Firebase Auth",      note: "Google Sign-In for learners" },
     ],
   },
 ];
 
 const badges = [
-  "Flutter", "Dart", "Python", "Django", "Firebase",
-  "Gemini AI", "ElevenLabs", "FFT", "MVVM", "Provider", "GetIt",
+  "Flutter", "Dart", "Python", "Django REST", "PostgreSQL",
+  "MinIO", "Docker Swarm", "MFA", "PhoWhisper", "CREPE",
+  "OpenAI API", "ElevenLabs", "Firebase Auth", "MVVM", "Provider", "GetIt",
 ];
 ---
 
@@ -50,7 +54,7 @@ const badges = [
         Technical Architecture
       </h2>
       <p class="mt-4 text-base max-w-xl mx-auto" style="color: var(--color-text-secondary); font-family: var(--font-body);">
-        VietAccent is a production-grade full-stack app, not a tutorial project.
+        A full-stack VinUniversity capstone — not a tutorial project. Flutter MVVM frontend, Django REST backend, a multi-signal speech pipeline, and 700+ tests across mobile and server.
       </p>
     </div>
 
@@ -89,22 +93,6 @@ const badges = [
           </ul>
         </div>
       ))}
-    </div>
-
-    <!-- GitHub link -->
-    <div class="mt-12 text-center">
-      <a
-        href="https://github.com/Thanh-WuTan/vietaccent"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 font-semibold text-sm transition-colors duration-150 hover:text-[#6366F1]"
-        style="color: var(--color-text-secondary); font-family: var(--font-display);"
-      >
-        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
-        </svg>
-        View source on GitHub →
-      </a>
     </div>
   </div>
 </section>

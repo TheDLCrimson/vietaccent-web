@@ -2,19 +2,15 @@
 const APK_URL = "https://github.com/Thanh-WuTan/vietaccent/releases/latest/download/app-release.apk";
 ---
 
-<!-- Dark ink hero — differentiated from the app's white/light mobile UI -->
 <section
   id="hero"
   class="relative min-h-screen flex items-center pt-16 overflow-hidden"
   style="background: var(--color-ink);"
 >
-  <!-- Subtle grid pattern -->
   <div
     class="absolute inset-0 opacity-[0.04]"
     style="background-image: linear-gradient(var(--color-border) 1px, transparent 1px), linear-gradient(90deg, var(--color-border) 1px, transparent 1px); background-size: 48px 48px;"
   ></div>
-
-  <!-- Glow blobs -->
   <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full opacity-20 blur-[120px] pointer-events-none"
     style="background: radial-gradient(circle, #6366F1, transparent 70%)"></div>
   <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full opacity-15 blur-[100px] pointer-events-none"
@@ -23,26 +19,24 @@ const APK_URL = "https://github.com/Thanh-WuTan/vietaccent/releases/latest/downl
   <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
     <div class="grid lg:grid-cols-2 gap-16 items-center">
 
-      <!-- Text -->
       <div class="text-center lg:text-left">
-        <!-- Badge -->
         <div class="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full mb-8 border"
           style="background: rgba(99,102,241,0.12); border-color: rgba(99,102,241,0.3); color: #A5B4FC;">
           <span class="w-1.5 h-1.5 rounded-full bg-[#6366F1] animate-pulse"></span>
-          Open-source · Free · Android 6.0+
+          Hanoi &amp; Saigon · Free · Android 6.0+
         </div>
 
         <h1
           class="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] text-white"
           style="font-family: var(--font-display); letter-spacing: -0.04em;"
         >
-          Learn<br />
-          Vietnamese.<br />
-          <span style="color: #818CF8;">Sound native.</span>
+          Vietnamese<br />
+          pronunciation<br />
+          <span style="color: #818CF8;">done right.</span>
         </h1>
 
-        <p class="mt-6 text-lg text-[#9C9C9C] max-w-lg mx-auto lg:mx-0 leading-relaxed" style="font-family: var(--font-body);">
-          Structured lessons, AI-powered per-syllable pronunciation scoring, and an audio phrase explorer — in one free mobile app.
+        <p class="mt-6 text-lg max-w-lg mx-auto lg:mx-0 leading-relaxed" style="color: #9C9C9C; font-family: var(--font-body);">
+          The only Vietnamese learning app that scores your pronunciation separately against <strong style="color: #e5e7eb;">Hanoi</strong> and <strong style="color: #e5e7eb;">Saigon</strong> — syllable by syllable, tone by tone.
         </p>
 
         <div class="mt-10 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
@@ -85,7 +79,6 @@ const APK_URL = "https://github.com/Thanh-WuTan/vietaccent/releases/latest/downl
           >
             <div class="absolute top-3 left-1/2 -translate-x-1/2 w-16 h-1 rounded-full" style="background: #2a2a4a;"></div>
             <div class="rounded-[2rem] overflow-hidden aspect-[9/19]" style="background: #0C0B1A;">
-              <!-- Pronunciation score screen mockup -->
               <div class="w-full h-full flex flex-col p-5 text-white">
                 <div class="flex items-center gap-2 mb-5">
                   <div class="w-7 h-7 rounded-full flex items-center justify-center" style="background: rgba(99,102,241,0.2);">
@@ -95,6 +88,7 @@ const APK_URL = "https://github.com/Thanh-WuTan/vietaccent/releases/latest/downl
                     </svg>
                   </div>
                   <span class="text-xs font-semibold" style="color: #A5B4FC; font-family: var(--font-display);">Pronunciation</span>
+                  <span class="ml-auto text-xs px-2 py-0.5 rounded-full" style="background: rgba(99,102,241,0.2); color: #818CF8;">Hanoi</span>
                 </div>
 
                 <div class="text-center mb-5">
@@ -102,17 +96,15 @@ const APK_URL = "https://github.com/Thanh-WuTan/vietaccent/releases/latest/downl
                   <div class="text-xs" style="color: var(--color-text-muted);">hello / good morning</div>
                 </div>
 
-                <!-- Score ring -->
                 <div class="flex justify-center mb-5">
                   <div class="w-20 h-20 rounded-full flex items-center justify-center border-4" style="border-color: #6366F1; background: rgba(99,102,241,0.1);">
                     <div>
-                      <div class="text-2xl font-black text-white text-center" style="font-family: var(--font-display);">87</div>
+                      <div class="text-2xl font-black text-white text-center" style="font-family: var(--font-display);">88</div>
                       <div class="text-xs text-center" style="color: #818CF8;">/ 100</div>
                     </div>
                   </div>
                 </div>
 
-                <!-- Per-syllable bars -->
                 <div class="space-y-2.5">
                   {[{ label: "xin", score: 92, color: "#22C55E" }, { label: "chào", score: 79, color: "#F59E0B" }].map(s => (
                     <div>
@@ -129,7 +121,6 @@ const APK_URL = "https://github.com/Thanh-WuTan/vietaccent/releases/latest/downl
               </div>
             </div>
           </div>
-          <!-- Glow under device -->
           <div class="absolute inset-x-8 bottom-0 h-20 blur-2xl opacity-30 -z-10 rounded-full"
             style="background: #6366F1;"></div>
         </div>
@@ -138,7 +129,6 @@ const APK_URL = "https://github.com/Thanh-WuTan/vietaccent/releases/latest/downl
     </div>
   </div>
 
-  <!-- Bottom fade to page background -->
   <div class="absolute bottom-0 inset-x-0 h-24 pointer-events-none"
     style="background: linear-gradient(to bottom, transparent, var(--color-bg));"></div>
 </section>
