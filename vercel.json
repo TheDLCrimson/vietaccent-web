@@ -2,7 +2,7 @@
   "redirects": [
     {
       "source": "/apk",
-      "destination": "https://github.com/Thanh-WuTan/vietaccent/releases/latest/download/app-release.apk",
+      "destination": "https://github.com/TheDLCrimson/vietaccent-web/releases/latest/download/app-release.apk",
       "permanent": false
     }
   ]

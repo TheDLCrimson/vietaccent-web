@@ -11,7 +11,7 @@ interface Props {
 const {
   title,
   description,
-  ogImage = "/og-image.svg",
+  ogImage = "/assets/appicon.jpg",
   canonicalUrl,
 } = Astro.props;
 
@@ -67,7 +67,8 @@ const jsonLd = {
     <meta name="twitter:image" content={resolvedOg} />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/assets/appicon_foreground.png" />
+    <link rel="apple-touch-icon" href="/assets/appicon.jpg" />
 
     <!-- Fonts: preconnect + stylesheet -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

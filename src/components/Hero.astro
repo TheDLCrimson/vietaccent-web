@@ -1,5 +1,5 @@
 ---
-const APK_URL = "https://github.com/Thanh-WuTan/vietaccent/releases/latest/download/app-release.apk";
+const APK_URL = "https://github.com/TheDLCrimson/vietaccent-web/releases/latest/download/app-release.apk";
 ---
 
 <section
@@ -17,7 +17,7 @@ const APK_URL = "https://github.com/Thanh-WuTan/vietaccent/releases/latest/downl
     style="background: radial-gradient(circle, #F97316, transparent 70%)"></div>
 
   <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
+    <div class="grid lg:grid-cols-[1fr_2.5fr] gap-4 items-center">
 
       <div class="text-center lg:text-left">
         <div class="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full mb-8 border"
@@ -72,57 +72,19 @@ const APK_URL = "https://github.com/Thanh-WuTan/vietaccent/releases/latest/downl
 
       <!-- Device mockup -->
       <div class="flex justify-center lg:justify-end">
-        <div class="relative w-60 sm:w-68">
-          <div
-            class="relative rounded-[2.5rem] p-3 shadow-2xl"
-            style="background: #1a1a2e; box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08);"
-          >
-            <div class="absolute top-3 left-1/2 -translate-x-1/2 w-16 h-1 rounded-full" style="background: #2a2a4a;"></div>
-            <div class="rounded-[2rem] overflow-hidden aspect-[9/19]" style="background: #0C0B1A;">
-              <div class="w-full h-full flex flex-col p-5 text-white">
-                <div class="flex items-center gap-2 mb-5">
-                  <div class="w-7 h-7 rounded-full flex items-center justify-center" style="background: rgba(99,102,241,0.2);">
-                    <svg class="w-4 h-4 text-[#818CF8]" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 15c1.66 0 3-1.34 3-3V6c0-1.66-1.34-3-3-3S9 4.34 9 6v6c0 1.66 1.34 3 3 3z"/>
-                      <path d="M17 12c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-2.08c3.39-.49 6-3.39 6-6.92h-2z"/>
-                    </svg>
-                  </div>
-                  <span class="text-xs font-semibold" style="color: #A5B4FC; font-family: var(--font-display);">Pronunciation</span>
-                  <span class="ml-auto text-xs px-2 py-0.5 rounded-full" style="background: rgba(99,102,241,0.2); color: #818CF8;">Hanoi</span>
-                </div>
-
-                <div class="text-center mb-5">
-                  <div class="text-3xl font-black mb-1" style="font-family: var(--font-display); color: #818CF8;">xin chào</div>
-                  <div class="text-xs" style="color: var(--color-text-muted);">hello / good morning</div>
-                </div>
-
-                <div class="flex justify-center mb-5">
-                  <div class="w-20 h-20 rounded-full flex items-center justify-center border-4" style="border-color: #6366F1; background: rgba(99,102,241,0.1);">
-                    <div>
-                      <div class="text-2xl font-black text-white text-center" style="font-family: var(--font-display);">88</div>
-                      <div class="text-xs text-center" style="color: #818CF8;">/ 100</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="space-y-2.5">
-                  {[{ label: "xin", score: 92, color: "#22C55E" }, { label: "chào", score: 79, color: "#F59E0B" }].map(s => (
-                    <div>
-                      <div class="flex justify-between text-xs mb-1">
-                        <span class="font-semibold" style="font-family: var(--font-display);">{s.label}</span>
-                        <span style={{ color: s.color }}>{s.score}%</span>
-                      </div>
-                      <div class="h-1.5 rounded-full w-full" style="background: rgba(255,255,255,0.08);">
-                        <div class="h-1.5 rounded-full" style={`width: ${s.score}%; background: ${s.color};`}></div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="absolute inset-x-8 bottom-0 h-20 blur-2xl opacity-30 -z-10 rounded-full"
-            style="background: #6366F1;"></div>
+        <div class="hero-mockup-wrap relative w-full lg:w-[160%]">
+          <img
+            src="/assets/hero-mockup.png"
+            alt="VietAccent app — pronunciation scoring on Hanoi and Saigon dialects"
+            class="hero-mockup w-full h-auto relative z-10"
+            loading="eager"
+            decoding="async"
+            width="800"
+            height="900"
+          />
+          <!-- Ambient glow under the phones -->
+          <div class="absolute bottom-4 inset-x-12 h-16 blur-3xl opacity-40 pointer-events-none rounded-full"
+            style="background: linear-gradient(90deg, #6366F1, #F97316);"></div>
         </div>
       </div>
 
@@ -132,3 +94,20 @@ const APK_URL = "https://github.com/Thanh-WuTan/vietaccent/releases/latest/downl
   <div class="absolute bottom-0 inset-x-0 h-24 pointer-events-none"
     style="background: linear-gradient(to bottom, transparent, var(--color-bg));"></div>
 </section>
+
+<style>
+  @keyframes hero-float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50%       { transform: translateY(-16px) rotate(0.4deg); }
+  }
+
+  .hero-mockup {
+    animation: hero-float 6s ease-in-out infinite;
+    mix-blend-mode: screen;
+    filter: drop-shadow(0 40px 60px rgba(0, 0, 0, 0.5));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-mockup { animation: none; }
+  }
+</style>

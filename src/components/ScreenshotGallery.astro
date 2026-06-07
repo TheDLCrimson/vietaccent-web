@@ -1,58 +1,149 @@
 ---
 const screenshots = [
   { src: "/assets/screenshots/pronunciation_result.jpg",    label: "Pronunciation Result",  desc: "Per-syllable score + tone breakdown" },
-  { src: "/assets/screenshots/pronunciation_test_page.jpg", label: "Pronunciation Test",    desc: "Record and submit against Hanoi or Saigon" },
-  { src: "/assets/screenshots/exercise_page.jpg",           label: "Exercise",              desc: "Interactive lesson exercise" },
+  { src: "/assets/screenshots/pronunciation_test_page.jpg", label: "Pronunciation Test",    desc: "Record against Hanoi or Saigon target" },
+  { src: "/assets/screenshots/exercise_page.jpg",           label: "Exercise",              desc: "Interactive lesson — Listen & Tap" },
   { src: "/assets/screenshots/grammar_page.jpg",            label: "Grammar Notes",         desc: "In-lesson grammar explanations" },
   { src: "/assets/screenshots/vocabulary_page.jpg",         label: "Vocabulary",            desc: "Vocabulary exercise type" },
   { src: "/assets/screenshots/phrase_explorer.jpg",         label: "Phrase Explorer",       desc: "Hanoi & Saigon audio + AI context" },
   { src: "/assets/screenshots/dashboard_page.jpg",          label: "Dashboard",             desc: "Home screen and lesson map" },
-  { src: "/assets/screenshots/progress_tracker.jpg",        label: "Progress Tracker",      desc: "XP, streaks, and achievements" },
+  { src: "/assets/screenshots/progress_tracker.jpg",        label: "Progress",              desc: "XP, streaks, and achievements" },
 ];
 ---
 
-<section id="screenshots" class="py-24 overflow-hidden" style="background: var(--color-bg);">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-14">
-      <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color: var(--color-primary); font-family: var(--font-display);">
-        Screenshots
-      </p>
-      <h2 class="text-3xl sm:text-4xl font-black" style="font-family: var(--font-display); color: var(--color-text-primary);">
-        See it in action
-      </h2>
-    </div>
-  </div>
+<section id="screenshots" class="py-24" style="background: var(--color-ink);">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
-  <!-- Full-bleed horizontal scroll -->
-  <div class="flex gap-4 overflow-x-auto pb-6 px-4 sm:px-8 lg:px-16 snap-x snap-mandatory scroll-smooth" style="scrollbar-width: none;">
-    {screenshots.map((s) => (
-      <div class="shrink-0 w-40 sm:w-44 snap-center">
+    <div class="text-center mb-14">
+      <p class="text-xs font-bold uppercase tracking-widest mb-3"
+        style="color: #A5B4FC; font-family: var(--font-display);">Screenshots</p>
+      <h2 class="text-3xl sm:text-4xl font-black text-white"
+        style="font-family: var(--font-display);">See it in action</h2>
+    </div>
+
+    <div class="flex flex-col items-center gap-8">
+
+      <!-- Phone + arrows -->
+      <div class="flex items-center gap-4 sm:gap-8">
+
+        <button id="ss-prev" aria-label="Previous screenshot"
+          class="w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-150 hover:bg-white/10 active:scale-95 shrink-0"
+          style="border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.6);">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+
         <!-- Phone frame -->
-        <div
-          class="rounded-[2rem] p-2 shadow-xl"
-          style="background: #13122A; box-shadow: 0 24px 48px rgba(0,0,0,0.2), 0 0 0 1px rgba(255,255,255,0.06);"
-        >
-          <div class="rounded-[1.6rem] overflow-hidden aspect-[9/19] bg-black">
-            <img
-              src={s.src}
-              alt={s.label + " — VietAccent app screenshot"}
-              loading="lazy"
-              decoding="async"
-              class="w-full h-full object-cover object-top"
-            />
+        <div class="relative shrink-0">
+          <div class="w-48 sm:w-56 rounded-xl p-[10px]"
+            style="background: #1a1a2e; box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.07);">
+            <div class="rounded-lg overflow-hidden relative" style="aspect-ratio: 353/624; background: #000;">
+              {screenshots.map((s, i) => (
+                <img
+                  src={s.src}
+                  alt={`${s.label} — VietAccent app screenshot`}
+                  loading={i < 2 ? "eager" : "lazy"}
+                  decoding="async"
+                  data-ss-img={i}
+                  class="absolute inset-0 w-full h-full object-fill"
+                  style={i === 0 ? "opacity:1; transition:opacity 0.4s ease;" : "opacity:0; transition:opacity 0.4s ease;"}
+                />
+              ))}
+            </div>
           </div>
+          <!-- Glow -->
+          <div class="absolute inset-x-10 -bottom-4 h-10 rounded-full blur-xl opacity-50 pointer-events-none"
+            style="background: #6366F1;"></div>
         </div>
-        <!-- Label -->
-        <div class="mt-3 text-center px-1">
-          <p class="text-sm font-semibold" style="font-family: var(--font-display); color: var(--color-text-primary);">{s.label}</p>
-          <p class="text-xs mt-0.5" style="color: var(--color-text-muted);">{s.desc}</p>
-        </div>
+
+        <button id="ss-next" aria-label="Next screenshot"
+          class="w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-150 hover:bg-white/10 active:scale-95 shrink-0"
+          style="border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.6);">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+
       </div>
-    ))}
+
+      <!-- Label -->
+      <div class="text-center" style="min-height: 3rem;">
+        <p id="ss-label" class="font-bold text-white text-lg transition-opacity duration-300"
+          style="font-family: var(--font-display);">{screenshots[0].label}</p>
+        <p id="ss-desc" class="text-sm mt-1 transition-opacity duration-300"
+          style="color: #9C9C9C; font-family: var(--font-body);">{screenshots[0].desc}</p>
+      </div>
+
+      <!-- Dot + progress indicators -->
+      <div id="ss-dots" class="flex items-center gap-2" role="tablist">
+        {screenshots.map((s, i) => (
+          <button
+            role="tab"
+            data-ss-dot={i}
+            aria-label={s.label}
+            aria-selected={i === 0 ? "true" : "false"}
+            class="rounded-full transition-all duration-300"
+            style={i === 0
+              ? "width:24px; height:8px; background:#6366F1;"
+              : "width:8px; height:8px; background:rgba(255,255,255,0.2);"}
+          />
+        ))}
+      </div>
+
+    </div>
   </div>
 </section>
 
-<style>
-  /* Hide scrollbar across browsers */
-  div[class*="overflow-x-auto"]::-webkit-scrollbar { display: none; }
-</style>
+<script define:vars={{ slides: screenshots.map(s => ({ label: s.label, desc: s.desc })) }}>
+  const total   = slides.length;
+  let current   = 0;
+  let timer     = null;
+
+  const imgs    = Array.from(document.querySelectorAll("[data-ss-img]"));
+  const dots    = Array.from(document.querySelectorAll("[data-ss-dot]"));
+  const labelEl = document.getElementById("ss-label");
+  const descEl  = document.getElementById("ss-desc");
+  const section = document.getElementById("screenshots");
+
+  function goTo(idx) {
+    idx = (idx + total) % total;
+    if (idx === current) return;
+
+    imgs[current].style.opacity = "0";
+    imgs[idx].style.opacity     = "1";
+
+    dots[current].style.cssText = "width:8px; height:8px; background:rgba(255,255,255,0.2); border-radius:9999px; transition:all 0.3s;";
+    dots[idx].style.cssText     = "width:24px; height:8px; background:#6366F1; border-radius:9999px; transition:all 0.3s;";
+    dots[current].setAttribute("aria-selected", "false");
+    dots[idx].setAttribute("aria-selected", "true");
+
+    if (labelEl) { labelEl.style.opacity = "0"; setTimeout(() => { labelEl.textContent = slides[idx].label; labelEl.style.opacity = "1"; }, 200); }
+    if (descEl)  { descEl.style.opacity  = "0"; setTimeout(() => { descEl.textContent  = slides[idx].desc;  descEl.style.opacity  = "1"; }, 200); }
+
+    current = idx;
+  }
+
+  function start() { timer = setInterval(() => goTo(current + 1), 4000); }
+  function stop()  { if (timer) { clearInterval(timer); timer = null; } }
+
+  start();
+
+  document.getElementById("ss-prev")?.addEventListener("click", () => { stop(); goTo(current - 1); start(); });
+  document.getElementById("ss-next")?.addEventListener("click", () => { stop(); goTo(current + 1); start(); });
+
+  dots.forEach(dot => dot.addEventListener("click", () => {
+    stop(); goTo(Number(dot.dataset.ssDot)); start();
+  }));
+
+  section?.addEventListener("mouseenter", stop);
+  section?.addEventListener("mouseleave", start);
+
+  // Touch swipe
+  let tx = 0;
+  section?.addEventListener("touchstart", e => { tx = e.touches[0].clientX; }, { passive: true });
+  section?.addEventListener("touchend",   e => {
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 40) { stop(); goTo(dx < 0 ? current + 1 : current - 1); start(); }
+  }, { passive: true });
+</script>

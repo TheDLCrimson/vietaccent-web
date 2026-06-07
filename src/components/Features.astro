@@ -1,25 +1,28 @@
 ---
+const SVG = (paths: string) =>
+  `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${paths}</svg>`;
+
 const features = [
   {
-    icon: "🏫",
+    icon: SVG(`<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>`),
     title: "Structured Vietnamese Lessons",
     badge: null,
     description: "11 exercise types. 158 lessons. Multiple choice, fill-in-the-blank, listening, speaking, dialogue, and more — from pronunciation fundamentals to conversational Vietnamese.",
   },
   {
-    icon: "🎤",
+    icon: SVG(`<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/>`),
     title: "Dialect-Aware Pronunciation Scoring",
     badge: "Key differentiator",
     description: "Record any word and get per-syllable scores against Hanoi or Saigon. Three fused signals: MFA forced alignment, PhoWhisper ASR, and CREPE pitch extraction.",
   },
   {
-    icon: "🔊",
+    icon: SVG(`<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>`),
     title: "Phrase Explorer",
     badge: null,
     description: "Curated phrase library with native-quality Hanoi and Saigon audio (ElevenLabs TTS) and AI-generated usage explanations for every entry.",
   },
   {
-    icon: "📈",
+    icon: SVG(`<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>`),
     title: "Progress, Streaks & Badges",
     badge: null,
     description: "Daily streaks, XP, and achievements. The dashboard highlights your weakest tones so every session is targeted.",
@@ -49,7 +52,7 @@ const features = [
           onmouseover="this.style.boxShadow='0 8px 30px rgba(0,0,0,0.08)'; this.style.borderColor='rgba(99,102,241,0.25)';"
           onmouseout="this.style.boxShadow='none'; this.style.borderColor='var(--color-border)';"
         >
-          <div class="text-4xl mb-5">{f.icon}</div>
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style="background: rgba(99,102,241,0.1); color: #6366F1;" set:html={f.icon}></div>
           <div class="flex flex-wrap items-center gap-3 mb-3">
             <h3 class="text-lg font-bold" style="font-family: var(--font-display); color: var(--color-text-primary);">{f.title}</h3>
             {f.badge && (
