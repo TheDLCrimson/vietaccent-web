@@ -1,17 +1,31 @@
-VietAccent — A Dialect-Aware Vietnamese Pronunciation Learning Platform
+Copyright (c) 2025 VietAccent Project Team, VinUniversity. All Rights Reserved.
 
-Copyright (c) 2025 VietAccent Authors (VinUniversity Capstone Project)
+PROPRIETARY AND CONFIDENTIAL
 
-All rights reserved.
+This software and its source code are the exclusive property of the VietAccent
+Project Team, VinUniversity, Hanoi, Vietnam. Unauthorized copying, modification,
+distribution, reproduction, or use of this software, in whole or in part, via
+any medium, is strictly prohibited without prior written permission from the
+copyright holders.
 
-This software and its associated assets are proprietary and confidential.
-No part of this software may be reproduced, distributed, or transmitted in
-any form or by any means without the prior written permission of the authors.
+Permission is granted to use this software (in compiled/binary form) free of
+charge for personal and non-commercial educational purposes only.
 
-The application is provided to end users free of charge as a compiled APK
-for personal, non-commercial educational use only. This does not constitute
-a grant of any rights to the source code.
+You may NOT:
+  - Copy, reproduce, or redistribute the source code or compiled binaries
+    for commercial purposes
+  - Modify, adapt, translate, reverse-engineer, decompile, or disassemble
+    the software
+  - Create derivative works based on the software
+  - Sublicense or sell copies of the software
 
-The VietAccent name, logo, and all screenshots are all rights reserved
-and may not be used in derivative works without explicit written permission
-from the copyright holders.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM,
+OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+For permissions beyond the scope of this license, contact:
+vietaccent.admin@gmail.com

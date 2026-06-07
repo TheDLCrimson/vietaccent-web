@@ -9,7 +9,6 @@ interface Props {
   frontmatter?: { title?: string; description?: string };
 }
 
-// MDX passes frontmatter through Astro.props.frontmatter
 const { title, description, frontmatter } = Astro.props;
 const resolvedTitle = frontmatter?.title ?? title;
 const resolvedDesc = frontmatter?.description ?? description;
@@ -17,12 +16,171 @@ const resolvedDesc = frontmatter?.description ?? description;
 
 <BaseLayout title={resolvedTitle} description={resolvedDesc}>
   <Nav />
-  <main class="pt-16 min-h-screen">
-    <article class="prose prose-slate max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16
-                    prose-headings:font-extrabold prose-a:text-red-600
-                    prose-code:bg-slate-100 prose-code:rounded prose-code:px-1">
-      <slot />
-    </article>
+  <main class="pt-16 min-h-screen" style="background: var(--color-bg);">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+      <nav class="mb-8">
+        <a
+          href="/"
+          class="inline-flex items-center gap-1.5 text-sm font-medium transition-colors duration-150 hover:opacity-75"
+          style="color: var(--color-text-secondary); font-family: var(--font-body);"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+          Back to home
+        </a>
+      </nav>
+
+      <article
+        class="content-prose rounded-2xl border px-8 py-10 sm:px-12 sm:py-12"
+        style="background: var(--color-surface); border-color: var(--color-border);"
+      >
+        <slot />
+      </article>
+
+    </div>
   </main>
   <Footer />
 </BaseLayout>
+
+<style>
+  .content-prose :global(h1) {
+    font-family: var(--font-display);
+    font-size: 1.875rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--color-text-primary);
+    margin: 0 0 0.375rem;
+  }
+  .content-prose :global(h1 + p) {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    margin: 0 0 2rem;
+  }
+  .content-prose :global(h1 + p strong) {
+    font-weight: 500;
+    color: var(--color-text-muted);
+  }
+  .content-prose :global(h2) {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    margin: 2.5rem 0 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .content-prose :global(h3) {
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 1.5rem 0 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .content-prose :global(p) {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+    margin: 0 0 1rem;
+  }
+  .content-prose :global(strong) {
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+  .content-prose :global(em) {
+    font-style: italic;
+    color: var(--color-text-muted);
+  }
+  .content-prose :global(a) {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: opacity 0.15s;
+  }
+  .content-prose :global(a:hover) { opacity: 0.75; }
+
+  /* Lists */
+  .content-prose :global(ul),
+  .content-prose :global(ol) {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+    padding-left: 1.5rem;
+    margin: 0 0 1rem;
+  }
+  .content-prose :global(li) { margin-bottom: 0.3rem; }
+  .content-prose :global(li strong) { color: var(--color-text-primary); }
+
+  /* Tables */
+  .content-prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    margin: 1.5rem 0;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .content-prose :global(thead) {
+    background: var(--color-surface-alt);
+  }
+  .content-prose :global(th) {
+    text-align: left;
+    padding: 0.625rem 1rem;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-secondary);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .content-prose :global(td) {
+    padding: 0.625rem 1rem;
+    color: var(--color-text-secondary);
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .content-prose :global(tr:last-child td) { border-bottom: none; }
+  .content-prose :global(td strong) { color: var(--color-text-primary); }
+
+  /* Blockquote */
+  .content-prose :global(blockquote) {
+    border-left: 3px solid var(--color-primary);
+    padding: 0.75rem 1rem;
+    margin: 1.5rem 0;
+    background: rgba(99,102,241,0.05);
+    border-radius: 0 6px 6px 0;
+  }
+  .content-prose :global(blockquote p) {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+  }
+
+  /* Inline code */
+  .content-prose :global(code) {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    padding: 0.125rem 0.375rem;
+    border-radius: 4px;
+    color: var(--color-text-primary);
+  }
+
+  /* HR */
+  .content-prose :global(hr) {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 2rem 0;
+  }
+</style>
