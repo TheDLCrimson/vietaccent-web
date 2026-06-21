@@ -2,7 +2,7 @@
 const screenshots = [
   { src: "/assets/screenshots/pronunciation_result.jpg",    label: "Pronunciation Result",  desc: "Per-syllable score + tone breakdown" },
   { src: "/assets/screenshots/pronunciation_test_page.jpg", label: "Pronunciation Test",    desc: "Record against Hanoi or Saigon target" },
-  { src: "/assets/screenshots/exercise_page.jpg",           label: "Exercise",              desc: "Interactive lesson — Listen & Tap" },
+  { src: "/assets/screenshots/exercise_page.jpg",           label: "Exercise",              desc: "Interactive lesson: Listen & Tap" },
   { src: "/assets/screenshots/grammar_page.jpg",            label: "Grammar Notes",         desc: "In-lesson grammar explanations" },
   { src: "/assets/screenshots/vocabulary_page.jpg",         label: "Vocabulary",            desc: "Vocabulary exercise type" },
   { src: "/assets/screenshots/phrase_explorer.jpg",         label: "Phrase Explorer",       desc: "Hanoi & Saigon audio + AI context" },
@@ -42,7 +42,7 @@ const screenshots = [
               {screenshots.map((s, i) => (
                 <img
                   src={s.src}
-                  alt={`${s.label} — VietAccent app screenshot`}
+                  alt={`${s.label}: VietAccent app screenshot`}
                   loading={i < 2 ? "eager" : "lazy"}
                   decoding="async"
                   data-ss-img={i}

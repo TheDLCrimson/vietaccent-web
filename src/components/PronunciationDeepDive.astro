@@ -2,7 +2,7 @@
 const steps = [
   { num: "01", title: "Record your voice",          detail: "Tap the microphone and say the target word or phrase. The app captures 16kHz mono audio in real time." },
   { num: "02", title: "Forced alignment (MFA)",     detail: "The Montreal Forced Aligner (Kaldi-based) maps your audio to the reference transcription at the phone level, producing per-phoneme timing and a goodness-of-pronunciation score for each segment." },
-  { num: "03", title: "ASR check (PhoWhisper)",     detail: "PhoWhisper-small — VinAI's Vietnamese fine-tune of Whisper — transcribes what you actually said. A Needleman-Wunsch alignment then detects any mispronounced or skipped syllables." },
+  { num: "03", title: "ASR check (PhoWhisper)",     detail: "PhoWhisper-small (VinAI's Vietnamese fine-tune of Whisper) transcribes what you actually said. A Needleman-Wunsch alignment then detects any mispronounced or skipped syllables." },
   { num: "04", title: "Pitch extraction (CREPE)",   detail: "CREPE (torchcrepe) extracts your F0 pitch contour per syllable and compares it against the reference tone curve. This is the primary signal for tone-class scoring." },
   { num: "05", title: "Score & feedback",           detail: "Per-syllable score = 0.6 × text_score + 0.4 × tone_score. A traffic-light indicator (green / yellow / red) gives instant at-a-glance feedback, and weak syllables are flagged for re-drill." },
 ];
@@ -30,7 +30,7 @@ const tones = [
         Dialect-Aware Pronunciation Scoring
       </h2>
       <p class="mt-4 text-base max-w-2xl mx-auto leading-relaxed" style="color: #9C9C9C; font-family: var(--font-body);">
-        Vietnamese has 6 tones — getting them wrong changes the word entirely. VietAccent fuses three independent signals (forced alignment, ASR, and pitch extraction) to give you objective, per-syllable feedback scored against the dialect you're learning.
+        Vietnamese has 6 tones. Getting them wrong changes the word entirely. VietAccent fuses three independent signals (forced alignment, ASR, and pitch extraction) to give you objective, per-syllable feedback scored against the dialect you're learning.
       </p>
     </div>
 
