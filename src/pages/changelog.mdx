@@ -1,6 +1,6 @@
 ---
 layout: ../layouts/ContentLayout.astro
-title: Changelog — VietAccent
+title: Changelog | VietAccent
 description: Release history and what's new in each version of VietAccent.
 ---
 
@@ -10,7 +10,25 @@ All notable changes to VietAccent are listed here.
 
 ---
 
-## v1.0.0 — Initial release
+## v1.0.1 | Pronunciation Polish
+
+**Released: 2026-06-22**
+
+### Bug Fixes
+- Pronunciation scores are now computed entirely by the backend and displayed as-is; the app no longer attempts any client-side score calculation
+- Pronunciation feedback is now delivered in English for clarity
+
+### Improvements
+- Introduced ReferenceAudioService to cache native speaker audio locally, eliminating redundant network fetches when replaying reference pronunciations
+- Pronunciation Assessment page now preloads reference audio on open and exposes a dedicated replay button
+- Added a "How to Type Vietnamese" guide widget accessible from exercise screens
+
+### Technical
+- 435 to 465+ mobile tests: new unit coverage for ReferenceAudioService, PronunciationResult model, and the new guide widget
+
+---
+
+## v1.0.0 | Initial release
 
 **Released: 2025-06-05**
 
@@ -32,4 +50,4 @@ First public beta distributed via direct APK download.
 
 ---
 
-*More releases will be appended here as the project evolves.*
+*More releases will be listed here as the project evolves.*
