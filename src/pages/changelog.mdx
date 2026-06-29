@@ -10,6 +10,22 @@ All notable changes to VietAccent are listed here.
 
 ---
 
+## v1.0.2 | Tone Weight Configuration
+
+**Released: 2026-06-29**
+
+### Improvements
+- Testers can now configure how much pitch accuracy vs. text accuracy contributes to pronunciation scores: a new "Custom tone weight" toggle in Settings > Pronunciation reveals a slider (0-100%) that maps to the backend's tone_weight parameter
+- Slider position is persisted across app restarts; toggling the feature off omits the field entirely, letting the backend apply its default
+
+### Technical
+- PreferencesService gains two new typed preferences: toneWeightEnabled (bool, default false) and toneWeight (double, default 0.4, clamped 0.0-1.0)
+- PronunciationApiService.evaluate() accepts an optional toneWeight argument and encodes it as a multipart form field only when non-null
+- PronunciationAssessmentViewModel reads from injected PreferencesService at both evaluation call sites (submit and auto-submit paths)
+- 465 to 508 tests: 11 new unit tests for the two new PreferencesService preferences (defaults, persistence, clamping, notifyListeners), 2 new ViewModel tests asserting tone_weight is forwarded when enabled and omitted when disabled
+
+---
+
 ## v1.0.1 | Pronunciation Polish
 
 **Released: 2026-06-22**
